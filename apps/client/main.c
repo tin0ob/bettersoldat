@@ -1341,7 +1341,7 @@ static bool console_open(App *app, int argc, char *argv[])
     app->hair = cvar_register(con, "cl_player_hair", "000000", CVAR_ARCHIVE, "the hair's colour, RRGGBB");
     app->jet = cvar_register(con, "cl_player_jet", "00008B", CVAR_ARCHIVE, "the jet flame's colour, RRGGBB");
     app->hair_style = cvar_register(con, "cl_player_hairstyle", "1", CVAR_ARCHIVE,
-                                    "0 army, 1-4 the male's (dreadlocks, punk, Mr. T, normal), 5-6 the waifu's (fringe, bob), 7 mullet, 8 wolfcut, 9 baldcut; the rat and the furry wear only army, punk and Mr. T");
+                                    "0 army, 1-4 the male's (dreadlocks, punk, Mr. T, normal), 5-6 the waifu's (fringe, bob), 7 mullet, 8 wolfcut, 9 baldcut, 10 afro, 11 emo; the rat and the furry wear only army, punk and Mr. T");
     app->head_style = cvar_register(con, "cl_player_headstyle", "0", CVAR_ARCHIVE,
                                     "0 none, 1-2 the male's (helmet, hat), 3 the waifu's; the rat and the furry wear none");
     app->chain_style = cvar_register(con, "cl_player_chainstyle", "0", CVAR_ARCHIVE, "0 none, 1 dog tags, 2 gold chain");
@@ -1486,7 +1486,7 @@ static PlayerLook look_from_cvars(const App *app)
         .skin = cvar_color(app->skin),
         .hair = cvar_color(app->hair),
         .jet = cvar_color(app->jet),
-        .hair_style = (uint8_t)clampi(app->hair_style->integer, 0, 9),
+        .hair_style = (uint8_t)clampi(app->hair_style->integer, 0, 11),
         .head_style = (uint8_t)clampi(app->head_style->integer, 0, 3),
         .chain_style = (uint8_t)clampi(app->chain_style->integer, 0, 2),
         .style = (uint8_t)clampi(app->style->integer, 0, GOSTEK_STYLE_COUNT - 1),

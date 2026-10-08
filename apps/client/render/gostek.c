@@ -101,6 +101,10 @@ static const GostekPart GOSTEK_PARTS[] = {
     {.file = "hair8", .p1 = 9, .p2 = 12, .cx = 0.167f, .cy = 0.629f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 8},
     // baldcut, the hair lab's
     {.file = "hair9", .p1 = 9, .p2 = 12, .cx = 0.018519f, .cy = 0.574074f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 9},
+    // afro, the hair lab's
+    {.file = "hair10", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.499f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 10},
+    // emo, the hair lab's
+    {.file = "hair11", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.493f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 11},
     {.file = "lancuch", .p1 = 10, .p2 = 22, .cx = 0.1f, .cy = 0.5f, .team = true, .chain = 1},
     {.file = "lancuch", .p1 = 11, .p2 = 22, .cx = 0.1f, .cy = 0.5f, .team = true, .chain = 1},
     {.file = "metal", .p1 = 22, .p2 = 21, .cx = 0.5f, .cy = 0.7f, .flip = true, .team = true, .chain = 1},

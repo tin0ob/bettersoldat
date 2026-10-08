@@ -200,7 +200,7 @@ typedef enum GostekStyle {
 typedef struct PlayerLook {
     Rgba shirt, pants, skin, hair;
     Rgba jet;            // the jet's flame, once the sparks are drawn
-    uint8_t hair_style;  // 0 army (none); 1-4 the male's (dreadlocks, punk, Mr. T, normal), 5-6 the waifu's (fringe, bob), 7 mullet, 8 wolfcut, 9 baldcut; the rat and the furry wear only army, punk and Mr. T
+    uint8_t hair_style;  // 0 army (none); 1-4 the male's (dreadlocks, punk, Mr. T, normal), 5-6 the waifu's (fringe, bob), 7 mullet, 8 wolfcut, 9 baldcut, 10 afro, 11 emo; the rat and the furry wear only army, punk and Mr. T
     uint8_t head_style;  // 0 none; 1-2 the male's (helmet, hat), 3 the waifu's (her helmet); the rat and the furry wear none
     uint8_t chain_style; // 0 none, 1 dog tags, 2 gold chain
     uint8_t style;       // the gostek: 0 male, 1 female, 2 waifu, 3 rat, 4 furry

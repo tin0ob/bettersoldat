@@ -27,7 +27,7 @@
 #include "render/sprite.h"
 #include "mod.h"
 
-#define GOSTEK_PART_COUNT 62
+#define GOSTEK_PART_COUNT 64
 
 // One sprite per (style, part, team 2, mirrored), plus the weapons and their muzzle
 // flashes. A part every style shares (the hair, the headgear, the belt's grenades) is
