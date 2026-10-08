@@ -76,7 +76,7 @@ static const GostekPart GOSTEK_PARTS[] = {
     // The hair, the headgear and the chain, in the original's order. A helmet or a hat
     // covers every hair style but the mohawk's (Mr. T's); the bow's band replaces them
     // all. The hairstyles and the headgear live in their own shared folders under
-    // gostek-gfx (hair/ and headgear/), each file named by its style — hair1 to hair6
+    // gostek-gfx (hair/ and headgear/), each file named by its style — hair1 to hair8
     // and helm, kap, helm3 — whichever gostek wears it, except the rat and the furry,
     // which wear only army, punk and Mr. T, and no headgear.
     {.file = "hair3", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.5f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 3},
@@ -94,8 +94,13 @@ static const GostekPart GOSTEK_PARTS[] = {
     {.file = "hair4", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.5f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 4},
     // The waifu's, styles 5 and 6, the same anchors, on any gostek. Her fringe's bangs
     // sit a little right on everyone, so it is anchored 10% in.
-    {.file = "hair5", .p1 = 9, .p2 = 12, .cx = 0.03f, .cy = 0.65f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 5},
-    {.file = "hair6", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.5f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 6},
+    {.file = "hair5", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.651f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 5},
+    {.file = "hair6", .p1 = 9, .p2 = 12, .cx = 0, .cy = 0.499f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 6},
+    // The new cuts, 7 the mullet and 8 the wolfcut, the fringe's anchors to start.
+    {.file = "hair7", .p1 = 9, .p2 = 12, .cx = 0.173f, .cy = 0.591f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 7},
+    {.file = "hair8", .p1 = 9, .p2 = 12, .cx = 0.167f, .cy = 0.629f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 8},
+    // baldcut, the hair lab's
+    {.file = "hair9", .p1 = 9, .p2 = 12, .cx = 0.018519f, .cy = 0.574074f, .flip = true, .team = true, .color = GOSTEK_COLOR_HAIR, .hair = 9},
     {.file = "lancuch", .p1 = 10, .p2 = 22, .cx = 0.1f, .cy = 0.5f, .team = true, .chain = 1},
     {.file = "lancuch", .p1 = 11, .p2 = 22, .cx = 0.1f, .cy = 0.5f, .team = true, .chain = 1},
     {.file = "metal", .p1 = 22, .p2 = 21, .cx = 0.5f, .cy = 0.7f, .flip = true, .team = true, .chain = 1},

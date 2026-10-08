@@ -11,10 +11,11 @@
 // entries of the same shape.
 //
 // The colours, the hair, the headgear and the chain come from the soldier's PlayerLook.
-// The hairstyles are one list of six — 1 to 4 the male's, 5 to 6 the waifu's — and
-// the headgear one of three (1-2 the male's, 3 the waifu's). They all live in their
-// own shared folders under gostek-gfx, hair/ and headgear/, each file named by its
-// style (hair1 to hair6, helm, kap, helm3), whichever gostek wears it. The rat and
+// The hairstyles are one list of eight — 1 to 4 the male's, 5 to 6 the waifu's,
+// 7 to 8 the new cuts — and the headgear one of three (1-2 the male's, 3 the
+// waifu's). They all live in their own shared folders under gostek-gfx, hair/ and
+// headgear/, each file named by its style (hair1 to hair8, helm, kap, helm3),
+// whichever gostek wears it. The rat and
 // the furry wear only army, punk and Mr. T, and no headgear. The chains and the
 // dreadlocks hang from the skeleton's points 21 to 24, which the
 // simulation swings behind the neck and the head (Soldier.swing, the ragdoll's own
@@ -26,7 +27,7 @@
 #include "render/sprite.h"
 #include "mod.h"
 
-#define GOSTEK_PART_COUNT 59
+#define GOSTEK_PART_COUNT 62
 
 // One sprite per (style, part, team 2, mirrored), plus the weapons and their muzzle
 // flashes. A part every style shares (the hair, the headgear, the belt's grenades) is

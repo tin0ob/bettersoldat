@@ -1762,7 +1762,7 @@ static void page_demos(Ui *ui, const DemoListing *demos, int n)
 
 // --- the player ---------------------------------------------------------------------
 
-static const char *const HAIR_STYLES[] = {"Army", "Dreadlocks", "Punk", "Mr. T", "Normal", "Fringe", "Bob"};
+static const char *const HAIR_STYLES[] = {"Army", "Dreadlocks", "Punk", "Mr. T", "Normal", "Fringe", "Bob", "Mullet", "Wolfcut", "baldcut"};
 static const char *const HEAD_STYLES[] = {"None", "Helmet", "Hat", "Waifu helmet"};
 static const char *const CHAIN_STYLES[] = {"None", "Dog tags", "Gold chain"};
 static const char *const SECONDARIES[] = {"USSOCOM", "Combat Knife", "Chainsaw", "LAW"};
@@ -1833,11 +1833,11 @@ static void page_player(Ui *ui, const Gostek *gostek, const Context *ctx)
         static const char *const STYLE_NAMES[] = {"Male", "Female", "Waifu", "Rat", "Furry"};
         style = cvar_select(ui, "Style", "cl_player_style", STYLES, STYLE_NAMES, NULL, 5);
         bool plain = style == GOSTEK_STYLE_RAT || style == GOSTEK_STYLE_FURRY; // they wear only some hair, and no headgear
-        static const int HAIR_VALUES[] = {0, 1, 2, 3, 4, 5, 6};
-        // the rat and the furry wear only army, punk and Mr. T; everyone else may wear all six
-        static const bool RAT_HAIR_LOCKED[] = {false, true, false, false, true, true, true};
+        static const int HAIR_VALUES[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        // the rat and the furry wear only army, punk and Mr. T; everyone else may wear all 9
+        static const bool RAT_HAIR_LOCKED[] = {false, true, false, false, true, true, true, true, true, true};
         hair_style = cvar_select(ui, "Hair", "cl_player_hairstyle", HAIR_VALUES, HAIR_STYLES,
-                                 plain ? RAT_HAIR_LOCKED : NULL, 7);
+                                 plain ? RAT_HAIR_LOCKED : NULL, 10);
         static const int HEAD_VALUES[] = {0, 1, 2, 3};
         static const bool RAT_HEAD_LOCKED[] = {false, true, true, true};
         head_style = cvar_select(ui, "Headgear", "cl_player_headstyle", HEAD_VALUES, HEAD_STYLES,
