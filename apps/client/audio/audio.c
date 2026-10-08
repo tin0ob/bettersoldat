@@ -427,11 +427,14 @@ static void audio_event(Audio *a, const Event *e, const World *w, int me)
         }
         break;
     // The flag's sounds. A score and a return are heard wherever you are, flat, as the
-    // original's (ClientHandleFlagInfo), a flag timed out back to its base among the
-    // returns. The grab and the drop are from where they happened: the original places
-    // the grab and plays the drop flat; a departure, on purpose.
+    // original's (ClientHandleFlagInfo), but a flag timed out back to its base is
+    // silent: the players asked for it, a departure. The grab and the drop are from
+    // where they happened: the original places the grab and plays the drop flat; a
+    // departure, on purpose.
     case EVENT_FLAG_GRAB: sound_play(a, "capture.wav", e->flag_grab.pos); break;
-    case EVENT_FLAG_RETURN: audio_flat(a, "capture.wav"); break;
+    case EVENT_FLAG_RETURN:
+        if (e->flag_return.player != 255) audio_flat(a, "capture.wav"); // 255: timed out
+        break;
     case EVENT_FLAG_SCORE: audio_flat(a, "ctf.wav"); break;
     case EVENT_FLAG_DROP:
         if (w->soldiers[e->flag_drop.player].team == w->soldiers[me].team) sound_play(a, "infilt-point.wav", e->flag_drop.pos);
