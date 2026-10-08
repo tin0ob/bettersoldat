@@ -332,6 +332,11 @@ typedef struct Soldier {
     Vec2 swing[4];     // points 21, 22, 23, 24, in the world
     Vec2 swing_old[2]; // 22's and 24's places the tick before
     bool mercy_shot;   // the mercy antic's shot and wound given for this run of its animation
+    // The hand (pose point 14) as the original's skeleton has it when a grenade is
+    // thrown: built after the last tick's controls, from that tick's frame and place,
+    // since ThrowGrenade runs in ControlSprite before TSprite.Update rebuilds it. The
+    // throw's alone: local, never on the wire, and nothing a hit is judged by.
+    Vec2 throw_hand;
 } Soldier;
 
 // ---------------------------------------------------------------------------------

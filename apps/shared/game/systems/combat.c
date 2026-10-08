@@ -234,8 +234,9 @@ static void throw_grenade(const Context *ctx, World *w, uint8_t index, Events *e
 
     if (body->frame > 14 && body->frame < 37 && s->grenades > 0 && s->cease_fire_counter < 0) {
         const WeaponStats *frag = &ctx->weapons.info[WEAPON_FRAG].stats;
-        Pose pose = soldier_pose(anims, s, s->pos);
-        Vec2 dir = vec2_normalize(vec2_sub(s->aim, pose.p[14]));
+        // from the hand as the original's skeleton has it here, a tick old (throw_hand)
+        Vec2 hand = s->throw_hand;
+        Vec2 dir = vec2_normalize(vec2_sub(s->aim, hand));
 
         // a few degrees of arc, which disappear aiming straight up or down
         float arc = signf(dir.x) / 8.0f * (1.0f - fabsf(dir.y));
@@ -247,7 +248,7 @@ static void throw_grenade(const Context *ctx, World *w, uint8_t index, Events *e
         if (body->frame < 24) vel = vec2_scale(vel, 0.65f);
         vel = vec2_add(vel, vec2_scale(s->vel, frag->inherit));
 
-        Vec2 origin = vec2(pose.p[14].x + vel.x * 3.0f, pose.p[14].y - 2.0f + vel.y * 3.0f);
+        Vec2 origin = vec2(hand.x + vel.x * 3.0f, hand.y - 2.0f + vel.y * 3.0f);
         Vec2 head = vec2(s->pos.x, s->pos.y - 12.0f);
         RayFilter filter = {.bullet = true, .team = s->team};
         if (!map_collision_test(ctx->map, origin, false, NULL) && !map_ray_cast(ctx->map, head, origin, 50.0f, filter, NULL)) {

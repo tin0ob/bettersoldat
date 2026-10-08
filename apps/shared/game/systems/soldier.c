@@ -63,6 +63,7 @@ void soldier_spawn(const Context *ctx, Soldier *s, Vec2 pos, Team team, Gear gea
     };
     anim_set(ctx->anims, &s->legs, ANIM_STAND, 1);
     anim_set(ctx->anims, &s->body, ANIM_STAND, 1);
+    s->throw_hand = soldier_pose(ctx->anims, s, pos).p[14];
 }
 
 void soldiers_receive(const Context *ctx, World *w, const Events *last, Events *events)
@@ -143,6 +144,9 @@ void soldier_step(const Context *ctx, World *w, uint8_t index, Command cmd, Even
 
     soldier_control(ctx, w, index, events, armed);
     s->direction = s->aim.x >= s->pos.x ? 1 : -1;
+    // the skeleton the original builds here, before the frame advances and the map
+    // moves the body: the next tick's grenade leaves this hand
+    s->throw_hand = soldier_pose(ctx->anims, s, s->pos).p[14];
     anim_advance(ctx->anims, &s->body);
     anim_advance(ctx->anims, &s->legs);
 
