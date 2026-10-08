@@ -407,6 +407,11 @@ static void frame_apply(ClientStream *c, Game *g, int me, int k)
             // one the pause holds, a little behind where mine had got to, and the game
             // goes on from it for everyone alike
             if (placed || g->match.state == MATCH_PAUSED) soldier_copy_owned(g->ctx.anims, s, heard);
+            // dead, my hands are the server's too, as everyone else's are (soldier_apply)
+            else if (heard->dead) {
+                s->weapon = heard->weapon;
+                s->fired = false;
+            }
             // A loadout picked while dead can reach the server after it has already
             // respawned me with the previous one. Apply my choice to this new life; the
             // next client state carries it back to the server as well.
@@ -427,9 +432,9 @@ static void frame_apply(ClientStream *c, Game *g, int me, int k)
 // Soldier `i` as its word in ring slot `k` has it, stepped on `steps` ticks on its last
 // keys to where the tick on show wants it. The correction goes to the picture, to be
 // shown over a little while; a placing, or a jump too far to be a correction, shows at
-// once. A dead one takes the served half alone, as the original never corrects a
-// corpse: its body is the ragdoll here, begun from the served death_pos and death_vel,
-// and its place the ragdoll's head.
+// once. A dead one takes the served half and its hands alone, as the original never
+// corrects a corpse: its body is the ragdoll here, begun from the served death_pos and
+// death_vel, and its place the ragdoll's head.
 static void soldier_apply(ClientStream *c, Game *g, int i, int k, int steps, Events *scratch)
 {
     World *w = &g->world;
@@ -440,6 +445,10 @@ static void soldier_apply(ClientStream *c, Game *g, int i, int k, int steps, Eve
     soldier_copy_served(s, heard);
     s->remote = true;
     if (heard->dead) {
+        // but its hands are the server's: die() let the gun go (a dropped gun now, flying
+        // on its own), and no shot goes off from a corpse
+        s->weapon = heard->weapon;
+        s->fired = false;
         c->blend[i] = c->blend_vel[i] = vec2(0, 0);
         return;
     }
